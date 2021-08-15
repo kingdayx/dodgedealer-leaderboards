@@ -1,0 +1,100 @@
+specVersion: 0.0.2
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: DodgeDealer
+    network: mainnet
+    source:
+      address: "0xccCa79107205433e743B0FCdcA8206171E07f059"
+      abi: DodgeDealer
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - EnableAccountStaking
+        - EnableStaking
+        - EnableSwapAndLiquify
+        - ExcludeFromFees
+        - GasForProcessingUpdated
+        - LeaderboardCompletion
+        - LiquidityWalletUpdated
+        - OwnershipTransferred
+        - ProcessedDividendTracker
+        - ReferralRewards
+        - ReferredBy
+        - SendDividends
+        - SetAutomatedMarketMakerPair
+        - SetPreSaleWallet
+        - SwapAndLiquify
+        - TradingEnabled
+        - Transfer
+        - UpdateAllowTokens
+        - UpdateDividendTracker
+        - UpdateFees
+        - UpdateFeesReferred
+        - UpdatePayoutToken
+        - UpdateReferralTreeFees
+        - UpdateStakingAmounts
+        - UpdateUniswapV2Router
+      abis:
+        - name: DodgeDealer
+          file: DodgeDealer\abis\DodgeDealer.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+        - event: EnableAccountStaking(indexed address,uint256)
+          handler: handleEnableAccountStaking
+        - event: EnableStaking(bool)
+          handler: handleEnableStaking
+        - event: EnableSwapAndLiquify(bool)
+          handler: handleEnableSwapAndLiquify
+        - event: ExcludeFromFees(indexed address,bool)
+          handler: handleExcludeFromFees
+        - event: GasForProcessingUpdated(indexed uint256,indexed uint256)
+          handler: handleGasForProcessingUpdated
+        - event: LeaderboardCompletion(uint8,uint256)
+          handler: handleLeaderboardCompletion
+        - event: LiquidityWalletUpdated(indexed address,indexed address)
+          handler: handleLiquidityWalletUpdated
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: ProcessedDividendTracker(uint256,uint256,uint256,indexed bool,uint256,indexed
+            address)
+          handler: handleProcessedDividendTracker
+        - event: ReferralRewards(indexed address,indexed address,indexed
+            uint256,uint256,uint256,uint256,int256)
+          handler: handleReferralRewards
+        - event: ReferredBy(indexed address,indexed address,uint256,uint256,uint256)
+          handler: handleReferredBy
+        - event: SendDividends(uint256,uint256,bool)
+          handler: handleSendDividends
+        - event: SetAutomatedMarketMakerPair(indexed address,indexed bool)
+          handler: handleSetAutomatedMarketMakerPair
+        - event: SetPreSaleWallet(address)
+          handler: handleSetPreSaleWallet
+        - event: SwapAndLiquify(uint256,uint256,uint256)
+          handler: handleSwapAndLiquify
+        - event: TradingEnabled()
+          handler: handleTradingEnabled
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+        - event: UpdateAllowTokens(address,bool)
+          handler: handleUpdateAllowTokens
+        - event: UpdateDividendTracker(indexed address,indexed address)
+          handler: handleUpdateDividendTracker
+        - event: UpdateFees(uint256,uint256,uint256,uint256,uint256)
+          handler: handleUpdateFees
+        - event: UpdateFeesReferred(uint256,uint256,uint256,uint256)
+          handler: handleUpdateFeesReferred
+        - event: UpdatePayoutToken(address,address)
+          handler: handleUpdatePayoutToken
+        - event: UpdateReferralTreeFees(int256,uint256)
+          handler: handleUpdateReferralTreeFees
+        - event: UpdateStakingAmounts(uint256,uint256)
+          handler: handleUpdateStakingAmounts
+        - event: UpdateUniswapV2Router(indexed address,indexed address)
+          handler: handleUpdateUniswapV2Router
+      file: DodgeDealer\DodgeDealer.wasm

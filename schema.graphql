@@ -1,0 +1,26 @@
+type ExampleEntity @entity {
+  id: ID!
+  count: BigInt!
+  owner: Bytes! # address
+  spender: Bytes! # address
+}
+
+type ReferralRewards @entity {
+  id: ID!
+  by: Bytes! # address
+  Referrer: Bytes! # address
+  iterationDaily: BigInt!
+  iterationWeekly: BigInt!
+  iterationMonthly: BigInt!
+}
+
+type RefferredBy @entity {
+  id: ID!
+  by: Bytes! # address
+  to: Bytes! # address
+  amount: BigInt!
+  iterationDaily: BigInt!
+  iterationWeekly: BigInt!
+  iterationMonthly: BigInt!
+  treePosition: BigInt!
+}
