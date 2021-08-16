@@ -1,4 +1,5 @@
 specVersion: 0.0.2
+repository: https://github.com/kingdayx/dodgedealer-leaderboards
 schema:
   file: ./schema.graphql
 dataSources:
